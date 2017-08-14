@@ -1,0 +1,11 @@
+{
+  "BACK_BUTTON_TEXT" : "Back",
+  "NOTES_MASTER_TITLE": "Notes",
+  "NOTE_CREATE_TITLE": "New Note",
+  "NOTE_TITLE_PLACEHOLDER" : "Title",
+  "DONE_BUTTON" : "Done",
+  "CANCEL_BUTTON" : "Cancel",
+  "DELETE_BUTTON" : "Delete",
+  "NOTE_EDIT_TITLE": "Edit note",
+  "EDIT_BUTTON": "Edit note"
+}

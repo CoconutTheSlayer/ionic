@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'NOTES_MASTER_TITLE' | translate }}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addNote()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="(notes$ | async | json) !== ({} | json); else loading">
+    <ion-item-sliding *ngFor="let note of notes$ | async | keys">
+      <button ion-item (click)="openNote(note.value)">
+        <h2>{{note.value.title}}</h2>
+        <p>{{note.key}}</p>
+        <ion-note item-end *ngIf="note.value.title">{{note.value.title}}</ion-note>
+      </button>
+      <ion-item-options>
+        <button ion-button color="primary" (click)="editNote(note.value)">
+          {{ 'EDIT_BUTTON' | translate }}
+        </button>
+        <button ion-button color="danger" (click)="deleteNote(note.value)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ng-template #loading>
+    <loader-component>
+    </loader-component>
+  </ng-template>
+</ion-content>
